@@ -61,4 +61,3 @@ This project is made possible by the amazing work done in the [demoinfocs-golang
 
 ## License
 Our project is licensed using the [MIT License](https://github.com/pnxenopoulos/csgo/blob/master/LICENSE).
-=======

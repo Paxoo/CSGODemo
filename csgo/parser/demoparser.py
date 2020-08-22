@@ -6,7 +6,6 @@ import pandas as pd
 from csgo.events import Round, Kill, Damage, Grenade, Flashed, PlayerInfo, BombEvent, ItemPickup
 from csgo.utils import NpEncoder, check_go_version
 
-
 class DemoParser:
     """ This class can parse a CSGO demofile to output game data in a logical structure. Accessible via csgo.parser import DemoParser
 
@@ -652,6 +651,7 @@ class DemoParser:
         if not self.demo_error:
             self._parse_match()
             self.write_data()
+            self.logger.info("Finished parsing...")
             return self.dataframes
         else:
             return "Match has parsing error"
@@ -708,8 +708,7 @@ class DemoParser:
         # we need to clean the dataframe because we get to much "air" information
         # nade_info air = nade entity is active
         # if a smoke detonate, we still get air info until the smoke expires
-        self.logger.info("Clearing nade list...")
-        newFrame = frame.loc[[0]]        
+        """newFrame = frame.loc[[0]]        
         i = 0
         nadeID_list = []
         
@@ -729,9 +728,10 @@ class DemoParser:
             
             if row['NadeInfo'] == "air" and row['NadeID'] in nadeID_list:
                 newFrame.loc[i] = row
-                i = i + 1
-           
-        self.grenades_df = newFrame
+                i = i + 1"""
+        frame = frame.drop_duplicates(subset=["NadeID", "NadeXViz", "NadeYViz"])
+        self.logger.info("Clearing nade list...")
+        self.grenades_df = frame
         
         
 

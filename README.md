@@ -22,6 +22,7 @@ demo_parser = DemoParser(demofile = "astralis-vs-liquid-m1-inferno.dem", match_i
 
 # Parse the demofile, output results to dictionary with df name as key
 data = demo_parser.parse()
+```
 
 # The following keys exist
 data["Map"]
@@ -37,9 +38,7 @@ data["ItemPickup"]
 ## Examples
 Take a look at the following Jupyter notebooks provided in our `examples/` directory.
 
-- [Parsing a CSGO demofile](https://github.com/pnxenopoulos/csgo/blob/master/examples/00_Parsing_a_CSGO_demofile.ipynb)
-- [Basic CSGO analysis](https://github.com/pnxenopoulos/csgo/blob/master/examples/01_Basic_statistical_analysis.ipynb)
-- [Creating game frames](https://github.com/pnxenopoulos/csgo/blob/master/examples/02_Generating_game_frames.ipynb)
+- [Parsing a CSGO demofile and extract information](https://github.com/Paxoo/CSGODemo/tree/master/examples/gettingDemoInformation.ipynb)
 
 ## Structure
 This repository contains code for CSGO analysis. It is structured as follows:

@@ -1,5 +1,5 @@
 # Analyzing Counter-Strike: Global Offensive Data
-The `csgo` package provides data parsing capabilities for Counter-Strike: Global Offensive (CSGO) data. In this repository, you will find the source code, issue tracker and useful information pertaining to the `csgo` package.
+The `csgo` package provides data parsing capabilities for Counter-Strike: Global Offensive (CSGO) data. In this repository, you will find the source code and issue tracker pertaining to the `csgo` package.
 
 ## Setup
 ### Requirements
@@ -21,7 +21,6 @@ demo_parser = DemoParser(demofile = "astralis-vs-liquid-m1-inferno.dem", match_i
 
 # Parse the demofile, output results to dictionary with df name as key
 data = demo_parser.parse()
-```
 
 # The following keys exist
 data["Map"]
@@ -33,6 +32,7 @@ data["Grenades"]
 data["EnemiesFlashed"]
 data["TeamFlashed"]
 data["ItemPickup"]
+```
 
 ## Examples
 Take a look at the following Jupyter notebooks provided in our `examples/` directory.

@@ -31,6 +31,7 @@ data["Bomb"]
 data["Grenades"]
 data["EnemiesFlashed"]
 data["TeamFlashed"]
+data["PlayerInfo"]
 data["ItemPickup"]
 ```
 

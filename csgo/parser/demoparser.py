@@ -238,8 +238,8 @@ class DemoParser:
         """
         self.logger.info(
             "Starting CSGO Golang demofile parser, reading in "
-            + os.getcwd()
-            + "/"
+            #+ os.getcwd()
+            #+ "/"
             + self.demofile
         )
         path = os.path.join(os.path.dirname(__file__), "")
@@ -250,7 +250,8 @@ class DemoParser:
                 "run",
                 "parse_demofile.go",
                 "-demo",
-                os.getcwd() + "/" + self.demofile,
+                #os.getcwd() + "/" + 
+                self.demofile,
             ],
             stdout=subprocess.PIPE,
             cwd=path,

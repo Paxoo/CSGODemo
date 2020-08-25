@@ -46,21 +46,9 @@ class MainWindow(QtWidgets.QMainWindow):
         contactAction.triggered.connect(self.openContact)
         
         # Create statistic actions
-        showKDRAction = QtWidgets.QAction('&Show final KDR', self)        
-        showKDRAction.setStatusTip('ya boy')
-        showKDRAction.triggered.connect(self.showKDR)
-        
-        showUtilityDMGAction = QtWidgets.QAction('&Show final Utility DMG', self)        
-        showUtilityDMGAction.setStatusTip('damage')
-        showUtilityDMGAction.triggered.connect(self.showUtilityDMG)
-        
-        showEFAction = QtWidgets.QAction('&Show final EnemiesFlashed', self)        
-        showEFAction.setStatusTip('cant see')
-        showEFAction.triggered.connect(self.showEF)
-        
-        showTFAction = QtWidgets.QAction('&Show final TeamFlashes', self)        
-        showTFAction.setStatusTip('cant see')
-        showTFAction.triggered.connect(self.showTF)
+        showStatsAction = QtWidgets.QAction('&Show final stats', self)        
+        showStatsAction.setStatusTip('ya boy')
+        showStatsAction.triggered.connect(self.showFinalStats)
 
         # Create menu bar and add action
         mainMenu = QtWidgets.QMenuBar()
@@ -68,10 +56,7 @@ class MainWindow(QtWidgets.QMainWindow):
         fileMenu.addAction(openfileAction)
         
         statisticMenu = mainMenu.addMenu('&Statistic')
-        statisticMenu.addAction(showKDRAction)
-        statisticMenu.addAction(showUtilityDMGAction)
-        statisticMenu.addAction(showEFAction)
-        statisticMenu.addAction(showTFAction)
+        statisticMenu.addAction(showStatsAction)
         
         helpMenu = mainMenu.addMenu('&Help')
         helpMenu.addAction(contactAction)
@@ -97,25 +82,11 @@ class MainWindow(QtWidgets.QMainWindow):
         demo_parser = DemoParser(demofile = self.demofile, match_id = "T")
         self.data = demo_parser.parse()
                  
-    def showKDR(self):
+    def showFinalStats(self):
         if self.guard_demoLoaded is True:
             stats = showStatistic(self.data)
-            stats.show_KDR()
+            stats.show_finalStats()
     
-    def showUtilityDMG(self):
-        if self.guard_demoLoaded is True:
-            stats = showStatistic(self.data)
-            stats.show_utilityDMG()
-            
-    def showEF(self):
-        if self.guard_demoLoaded is True:
-            stats = showStatistic(self.data)
-            stats.show_EnemiesFlashed()
-            
-    def showTF(self):
-        if self.guard_demoLoaded is True:
-            stats = showStatistic(self.data)
-            stats.show_TeamFlashes()
         
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
